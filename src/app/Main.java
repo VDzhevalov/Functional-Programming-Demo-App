@@ -1,7 +1,10 @@
 package app;
 
 import app.model.MathOperation;
+import app.model.StringListProcessor;
 import app.model.StringManipulator;
+
+import java.util.function.Function;
 
 import static app.view.UIOperator.getOutput;
 
@@ -27,5 +30,10 @@ public class Main {
         //3.1 Те ж саме, але використовуючи посилання на метод
         StringManipulator stringManipulatorMethodRef = String::toUpperCase;
         getOutput("Посилання на статичний метод String::toUpperCase", stringManipulatorMethodRef.transform("Hello"));
+
+        //4. Створіть клас StringListProcessor, який має статичний метод int countUppercase(String s), що повертає кількість великих літер у рядку.
+        //5. Використайте посилання на методи, щоб передати метод countUppercase як аргумент функції Function<String, Integer>.
+        Function<String, Integer> functionResult = StringListProcessor::countUppercase;
+        getOutput("Посилання на статичний метод StringListProcessor::countUppercase", functionResult.apply("HEllO wORld"));
     }
 }
