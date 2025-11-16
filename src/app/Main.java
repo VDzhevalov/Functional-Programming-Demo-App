@@ -17,14 +17,14 @@ public class Main {
         //2. Використовуючи анонімний клас, створіть об'єкт інтерфейсу MathOperation, який виконує операцію додавання.
         MathOperation mathOperation = new MathOperation() {
             @Override
-            public int operate(int a, int b){
+            public int operate(int a, int b) {
                 return a + b;
             }
         };
         getOutput("Анонімний клас MathOperation", mathOperation.operate(10, 20));
         //2.1 Те ж саме, але використовуючи посилання на метод
         MathOperation mathOperationMethodRef = Integer::sum;
-        getOutput("MathOperation Посилання на статичний метод = Integer::sum", mathOperationMethodRef.operate(15, 40) );
+        getOutput("MathOperation Посилання на статичний метод = Integer::sum", mathOperationMethodRef.operate(15, 40));
 
         //3. Створіть лямбда-вираз, який реалізує функціональний інтерфейс StringManipulator і перетворює вхідний рядок у верхній регістр
         StringManipulator stringManipulator = s -> s.toUpperCase();
@@ -39,10 +39,10 @@ public class Main {
         getOutput("Посилання на статичний метод StringListProcessor::countUppercase", functionResult.apply("HEllO wORld"));
 
         //6. Створіть клас RandomNumberGenerator, який має статичний метод int generateRandomNumber(int min, int max), що повертає випадкове ціле число в заданому діапазоні.
-        getOutput("Статичний метод int generateRandomNumber(5,9)", generateRandomNumber(5,9));
+        getOutput("Статичний метод int generateRandomNumber(5,9)", generateRandomNumber(5, 9));
 
         //7. Використайте інтерфейс Supplier<T> для створення постачальника, який буде генерувати випадкове число від 1 до 100.
-        Supplier<Integer> randomSupplier = () -> generateRandomNumber(1,100);
+        Supplier<Integer> randomSupplier = () -> generateRandomNumber(1, 100);
         getOutput("Supplier () -> generateRandomNumber(1,100)", randomSupplier.get());
     }
 }
