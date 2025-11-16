@@ -5,7 +5,9 @@ import app.model.StringListProcessor;
 import app.model.StringManipulator;
 
 import java.util.function.Function;
+import java.util.function.Supplier;
 
+import static app.model.RandomNumberGenerator.generateRandomNumber;
 import static app.view.UIOperator.getOutput;
 
 public class Main {
@@ -35,5 +37,12 @@ public class Main {
         //5. Використайте посилання на методи, щоб передати метод countUppercase як аргумент функції Function<String, Integer>.
         Function<String, Integer> functionResult = StringListProcessor::countUppercase;
         getOutput("Посилання на статичний метод StringListProcessor::countUppercase", functionResult.apply("HEllO wORld"));
+
+        //6. Створіть клас RandomNumberGenerator, який має статичний метод int generateRandomNumber(int min, int max), що повертає випадкове ціле число в заданому діапазоні.
+        getOutput("Статичний метод int generateRandomNumber(5,9)", generateRandomNumber(5,9));
+
+        //7. Використайте інтерфейс Supplier<T> для створення постачальника, який буде генерувати випадкове число від 1 до 100.
+        Supplier<Integer> randomSupplier = () -> generateRandomNumber(1,100);
+        getOutput("Supplier () -> generateRandomNumber(1,100)", randomSupplier.get());
     }
 }
